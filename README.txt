@@ -34,7 +34,7 @@ Eg. Linux command line would be as follow -
 
 git clone https://github.com/dip-kush/oneclick.git
 
-
+git 
 ==================== Download the certificate module. ====================
 
 Visit https://github.com/dip-kush/oneclick.git and download the zip, uncompress this zip and extract the folder.Rename the folder as one click The folder will have a name oneclick. Place this folder in your mod folder in your Moodle directory.
