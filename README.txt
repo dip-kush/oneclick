@@ -27,15 +27,15 @@ If you do not have git installed, please see the below link. Please note, it is 
 
 Information on installing git - http://help.github.com/set-up-git-redirect/
 
-Once you have git installed, simply visit the Moodle mod directory and clone git://our_url/click.git, remember to rename the folder to click if you do not specify this in the clone command
+Once you have git installed, simply visit the Moodle mod directory and clone https://github.com/dip-kush/oneclick.git, remember to rename the folder to click if you do not specify this in the clone command
 
 Eg. Linux command line would be as follow -
 
-git clone git://url///
+git clone https://github.com/dip-kush/oneclick.git
 
 
 ==================== Download the certificate module. ====================
 
-Visit https://github.com/markn86/moodle-mod_certificate and download the zip, uncompress this zip and extract the folder. The folder will have a name similar to markn86-moodle-mod_certificate-c9fbadb, you MUST rename this to click. Place this folder in your mod folder in your Moodle directory.
+Visit https://github.com/dip-kush/oneclick.git and download the zip, uncompress this zip and extract the folder. The folder will have a name oneclick. Place this folder in your mod folder in your Moodle directory.
 
 The reason this is not the recommended method is due to the fact you have to over-write the contents of this folder to apply any future updates to the certificate module. In the above method there is a simple command to update the files.
