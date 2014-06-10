@@ -11,11 +11,11 @@ require_once($CFG->dirroot.'/course/lib.php');
 defined('MOODLE_INTERNAL') || die();
   
 
-function oneclick_add_instance(stdClass $click, mod_oneclick_mod_form $mform = null){
+function oneclick_add_instance(stdClass $oneclick, mod_oneclick_mod_form $mform = null){
   global $DB;
 
-  $roomname = $click->name;
-  $duration = $click->duration;
+  $roomname = $oneclick->name;
+  $duration = $oneclick->duration;
 
   echo $roomname;
   echo $duration;
@@ -24,14 +24,14 @@ function oneclick_add_instance(stdClass $click, mod_oneclick_mod_form $mform = n
 
 
 
-  return $DB->insert_record('oneclick', $click);
+  return $DB->insert_record('oneclick', $oneclick);
 }
-function oneclick_update_instance(stdClass $click, mod_oneclick_mod_form $mform = null){
+function oneclick_update_instance(stdClass $oneclick, mod_oneclick_mod_form $mform = null){
   global $DB;
 
-  $click->id = $click->instance;
+  $oneclick->id = $oneclick->instance;
 
-  return $DB->update_record('oneclick', $click);
+  return $DB->update_record('oneclick', $oneclick);
 
 
 }
@@ -40,13 +40,13 @@ function oneclick_delete_instance($id){
 
   global $DB;
 
-  if (! $click = $DB->get_record('oneclick', array('id' => $id))) {
+  if (! $oneclick = $DB->get_record('oneclick', array('id' => $id))) {
         return false;
     }
 
     # Delete any dependent records here #
 
-    $DB->delete_records('oneclick', array('id' => $click->id));
+    $DB->delete_records('oneclick', array('id' => $oneclick->id));
 
     return true;
 
@@ -59,7 +59,6 @@ function create_room($name,$datetime){
   
 
 $service_url = "https://1click.io/api/v1/conference/";
-//$service_url = "https://tystaging.cloudapp.net/api/v1/conference/";
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_HEADER, false);
 $accesstoken= "Apikey ".$CFG->email.":".$CFG->apikey;

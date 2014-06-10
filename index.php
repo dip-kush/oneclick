@@ -10,7 +10,7 @@ $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
 
 require_course_login($course);
 
-//add_to_log($course->id, 'click', 'view all', 'index.php?id='.$course->id, '');
+//add_to_log($course->id, 'oneclick', 'view all', 'index.php?id='.$course->id, '');
 
 $coursecontext = context_course::instance($course->id);
 
@@ -21,8 +21,8 @@ $PAGE->set_context($coursecontext);
 
 echo $OUTPUT->header;
 
-if (! $clicks = get_all_instances_in_course('oneclick', $course)) {
-    notice(get_string('nonewclicks', 'oneclick'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (! $oneclicks = get_all_instances_in_course('oneclick', $course)) {
+    notice(get_string('nonewoneclicks', 'oneclick'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 
@@ -38,20 +38,20 @@ if ($course->format == 'weeks') {
     $table->align = array('left', 'left', 'left');
 }
 
-foreach($clicks as $click){
-	if (!$click->visible) {
+foreach($oneclicks as $oneclick){
+	if (!$oneclick->visible) {
         $link = html_writer::link(
-            new moodle_url('/mod/oneclick.php', array('id' => $click->coursemodule)),
-            format_string($click->name, true),
+            new moodle_url('/mod/oneclick.php', array('id' => $oneclick->coursemodule)),
+            format_string($oneclick->name, true),
             array('class' => 'dimmed'));
     } else {
         $link = html_writer::link(
-            new moodle_url('/mod/oneclick.php', array('id' => $click->coursemodule)),
-            format_string($click->name, true));
+            new moodle_url('/mod/oneclick.php', array('id' => $oneclick->coursemodule)),
+            format_string($oneclick->name, true));
     }
 
     if ($course->format == 'weeks' or $course->format == 'topics') {
-        $table->data[] = array($click->section, $link);
+        $table->data[] = array($oneclick->section, $link);
     } else {
         $table->data[] = array($link);
     }

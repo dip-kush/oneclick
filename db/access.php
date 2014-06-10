@@ -5,8 +5,8 @@
  * The variable name for the capability definitions array is $capabilities
  *
  * @package    mod_oneclick
- * @copyright  2014 TurtleYogi
- * @license   https://1click.io/ 
+ * @copyright  2014 Deepak Kushwaha
+ * @license   1oneclick.io 
  */
 
 
@@ -32,7 +32,8 @@ $capabilities = array(
 			'contextlevel' => CONTEXT_COURSE,
 			'archetypes' => array(
 					'editingteacher' => CAP_ALLOW,
-					'manager' => CAP_ALLOW
+					'manager' => CAP_ALLOW,
+                    'user' =>CAP_ALLOW
 			),
 			'clonepermissionsfrom' => 'moodle/course:manageactivities'
 	),
